@@ -80,10 +80,53 @@ INSERT INTO propiedades (casilla_id, nombre, precio, alquiler_base, alquiler_niv
 ((SELECT id FROM casillas WHERE posicion = 25), 'Tram Metropolitano 3', 200, 25, 50, 100, 200, NULL, 'Estacion'),
 ((SELECT id FROM casillas WHERE posicion = 35), 'Tram Metropolitano 4', 200, 25, 50, 100, 200, NULL, 'Estacion');
 
+
+-- ==========================================
+-- INSERTS PARA CARTAS DE COMUNIDAD (SUERTE)
+-- ==========================================
 INSERT INTO cartas (tipo, descripcion, efecto, valor) VALUES
-('SUERTE', 'Bono de Navidad: La empresa te adelanta una nómina.', 'ganar_dinero', 300),
-('SUERTE', 'Lotería de El Gordo: Te ha tocado el reintegro.', 'ganar_dinero', 100),
-('SUERTE', 'Multa de tráfico: Ibas demasiado rápido con el coche.', 'perder_dinero', 150),
-('COMUNIDAD', 'Error del banco a tu favor.', 'ganar_dinero', 200),
-('COMUNIDAD', 'Gastos médicos: Visita inesperada al dentista.', 'perder_dinero', 50),
-('SUERTE', 'Vaya directamente a la Cárcel sin pasar por la salida.', 'ir_carcel', 0);
+('COMUNIDAD', 'Bono de Navidad: La empresa te adelanta una nómina por las fiestas. ¡Corre a por un buen jamón! - Ganas 50 ₧', 'ganar_dinero', 50),
+('COMUNIDAD', 'Ayuda del Amigo: Tu colega el fontanero te hace un favor: te legaliza una obra sin licencia. - Ganas 50 ₧', 'ganar_dinero', 50),
+('COMUNIDAD', 'Lotería de El Gordo: Te ha tocado el reintegro. No es mucho, pero da para un chato de vino y unas bravas. - Ganas 100 ₧', 'ganar_dinero', 100),
+('COMUNIDAD', 'Fondos Europeos: Recibes una subvención inesperada para digitalizar tu negocio de churros. - Ganas 120 ₧', 'ganar_dinero', 120),
+('COMUNIDAD', 'Plusvalía Inesperada: Vendes un piso que heredaste. El mercado inmobiliario ha hecho el resto. - Ganas 100 ₧', 'ganar_dinero', 100),
+('COMUNIDAD', 'Promoción Interna: Te ascienden en el trabajo porque la jefa es prima de tu cuñado. - Ganas 400 ₧', 'ganar_dinero', 400),
+('COMUNIDAD', 'Errores del Banco: El cajero automático se ha vuelto loco y te ingresa 250 ₧ de más. ¡Cállate y corre! - Ganas 250 ₧', 'ganar_dinero', 250),
+('COMUNIDAD', 'Herencia del Tío Paco: Tu tío lejano de Albacete, del que no sabías nada, te deja un pequeño solar. - Ganas 200 ₧', 'ganar_dinero', 200),
+('COMUNIDAD', '"Maletín" Político: Encuentras un maletín olvidado en un parking de un congreso. Discreción, por favor. - Ganas 150 ₧', 'ganar_dinero', 150),
+('COMUNIDAD', 'Derechos de Imagen: Descubren que tu cara sale en un meme viral de Internet. Cobras los derechos. - Ganas 50 ₧', 'ganar_dinero', 50),
+('COMUNIDAD', 'Tapa de la Semana: Tu bar de tapas recibe un premio. Recibes 50 ₧ de cada jugador por tu receta secreta.', 'cobrar_jugadores', 50),
+('COMUNIDAD', 'Cátedra Universitaria: Te han concedido el bono cultural. - Ganas 100 ₧', 'ganar_dinero', 100),
+('COMUNIDAD', 'Indulto: Te perdonan una multa de tráfico por un defecto de forma en el formulario. - Ganas 0 pts', 'ganar_dinero', 0),
+('COMUNIDAD', 'Black Friday: Encuentras una ganga de pisos a reformar en la costa. Véndela con sobreprecio. - Ganas 250 ₧', 'ganar_dinero', 250),
+('COMUNIDAD', 'Cena de Empresa: Tu jefe paga la cuenta y, de propina, te da 100 ₧ para el taxi. - Ganas 100 ₧', 'ganar_dinero', 100),
+('COMUNIDAD', 'Venta de Tierras: Vendes unos terrenos rústicos que se convierten en urbanizables por arte de magia. - Ganas 100 ₧', 'ganar_dinero', 100),
+('COMUNIDAD', 'La Abuela Interviene: Tu abuela te ingresa dinero para que no te falte nada al ver tu piso vacío. - Ganas 50 ₧', 'ganar_dinero', 50),
+('COMUNIDAD', 'Influencer Digital: Consigues un patrocinio fugaz para promocionar un producto de dudosa calidad. - Ganas 50 ₧', 'ganar_dinero', 50),
+('COMUNIDAD', 'Error en la Renta: Hacienda se equivoca a tu favor y te devuelve más de lo que esperabas. - Ganas 20 ₧', 'ganar_dinero', 20),
+('COMUNIDAD', 'Bote de las Carreras: Ganas el bote en las carreras de caballos. ¡A celebrarlo con marisco! - Ganas 10 ₧', 'ganar_dinero', 10);
+
+-- ==========================================
+-- INSERTS PARA CARTAS DE SUERTE (HACIENDA)
+-- ==========================================
+INSERT INTO cartas (tipo, descripcion, efecto, valor) VALUES
+('SUERTE', 'IVA Impagado: Hacienda te pilla intentando ahorrarte el IVA de unas facturas. ¡A pagar! - Pagas 50 ₧', 'perder_dinero', 50),
+('SUERTE', 'Aviso de Desahucio: Tienes que pagar el alquiler de una propiedad que tenías ocupada ilegalmente. - Pagas 100 ₧', 'perder_dinero', 100),
+('SUERTE', 'Multa de Tráfico: Te llega una multa de radar. Ibas a 140 km/h y te la notifica Correos un mes tarde. - Pagas 50 ₧', 'perder_dinero', 50),
+('SUERTE', 'Derrama Vecinal: Los vecinos te obligan a pagar la derrama por un nuevo ascensor de lujo. - Pagas 70 ₧', 'perder_dinero', 70),
+('SUERTE', 'Inspección Laboral: Te detectan a un empleado "en negro" limpiando la escalera. Paga la sanción. - Pagas 100 ₧', 'perder_dinero', 100),
+('SUERTE', 'Impuesto al Sol: Te multan por no declarar los paneles solares que pusiste en el balcón. - Pagas 20 ₧', 'perder_dinero', 20),
+('SUERTE', 'Gasto Boda Gitana: Tienes que pagar el traje de boda a tu sobrino. El banquete ya es cosa del suegro. - Pagas 100 ₧', 'perder_dinero', 100),
+('SUERTE', 'Impuesto de Patrimonio: Tienes demasiadas propiedades. Hacienda te recuerda que eres rico. - Pagas 100 ₧', 'perder_dinero', 100),
+('SUERTE', 'Crisis Hipotecaria: Tu banco te sube la hipoteca al doble por la subida del Euribor. - Pagas 80 ₧', 'perder_dinero', 80),
+('SUERTE', 'Regreso del Político: El político del maletín ha venido a recuperar lo suyo. Paga el doble. - Pagas 50 ₧', 'perder_dinero', 50),
+('SUERTE', 'Impuesto de Turismo: Los turistas han llenado tanto tu zona que te cobran un "Impuesto de Masificación". - Pagas 100 ₧', 'perder_dinero', 100),
+('SUERTE', 'Cena de Fianza: Estás en el restaurante y te toca pagar la fianza del grupo porque se han dejado la cartera. - Pagas 60 ₧', 'perder_dinero', 60),
+('SUERTE', 'ITV Negativa: Tu coche no pasa la ITV por décima vez. Tienes que pagar la multa y la reparación. - Pagas 90 ₧', 'perder_dinero', 90),
+('SUERTE', 'Gastos Notariales: El notario te cobra por la tinta y por respirar en su oficina. - Pagas 100 ₧', 'perder_dinero', 100),
+('SUERTE', 'Pinchazo en la Rueda: Pinchas una rueda con un clavo oxidado de una obra sin señalizar. - Pagas 50 ₧', 'perder_dinero', 50),
+('SUERTE', 'Tasa de Residuos: Te cobran la tasa de reciclaje que nadie sabe para qué sirve. - Pagas 50 ₧', 'perder_dinero', 50),
+('SUERTE', 'Gasto de I+D+i: Tienes que invertir en un proyecto de I+D que sabes que no va a funcionar. - Pagas 100 ₧', 'perder_dinero', 100),
+('SUERTE', 'Fiesta de Nochevieja: Te toca pagar todos los canapés de la cena de fin de año y te quedas sin uvas. - Pagas 50 ₧', 'perder_dinero', 50),
+('SUERTE', 'Alquiler de Casa: Paga a cada jugador 50 ₧ por cada casa/hotel que posean.', 'pagar_jugadores', 50),
+('SUERTE', 'Arreglos del Pueblo: El Ayuntamiento de tu pueblo te exige pagar los arreglos de la plaza mayor. - Pagas 50 ₧', 'perder_dinero', 50);
