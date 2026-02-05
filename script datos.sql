@@ -80,6 +80,9 @@ INSERT INTO propiedades (casilla_id, nombre, precio, alquiler_base, alquiler_niv
 ((SELECT id FROM casillas WHERE posicion = 25), 'Tram Metropolitano 3', 200, 25, 50, 100, 200, NULL, 'Estacion'),
 ((SELECT id FROM casillas WHERE posicion = 35), 'Tram Metropolitano 4', 200, 25, 50, 100, 200, NULL, 'Estacion');
 
+INSERT INTO propiedades (casilla_id, nombre, precio, alquiler_base, color_grupo) VALUES
+((SELECT id FROM casillas WHERE posicion = 12), 'Iberdrola', 150, 0, 'Servicios'),
+((SELECT id FROM casillas WHERE posicion = 28), 'Aquaservice', 150, 0, 'Servicios');
 
 -- ==========================================
 -- INSERTS PARA CARTAS DE COMUNIDAD (SUERTE)
