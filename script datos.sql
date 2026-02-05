@@ -39,7 +39,7 @@ INSERT INTO casillas (posicion, nombre, tipo) VALUES
 (35, 'Tram Metropolitano 4', 'ESTACION'),
 (36, 'Suerte', 'SUERTE'),
 (37, 'Camino del Faro', 'PROPIEDAD'),
-(38, 'Impuesto sobre el Patrimonio', 'IMPUESTO'),
+(38, 'Gran Casino', 'CASINO'),
 (39, 'Calle de la Dorada', 'PROPIEDAD');
 
 -- Usamos subconsultas para obtener el ID de la casilla por su posición
