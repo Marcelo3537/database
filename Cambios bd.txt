@@ -1,0 +1,48 @@
+USE monopoly_db;
+
+ALTER TABLE propiedades 
+ADD COLUMN alquiler_nivel_4 INT AFTER alquiler_nivel_3,
+ADD COLUMN alquiler_hotel INT AFTER alquiler_nivel_4;
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE TABLE propiedades;
+SET FOREIGN_KEY_CHECKS = 1;
+
+INSERT INTO propiedades (casilla_id, nombre, precio, alquiler_base, alquiler_nivel_1, alquiler_nivel_2, alquiler_nivel_3, alquiler_nivel_4, alquiler_hotel, precio_mejora, color_grupo) VALUES
+-- LILA
+((SELECT id FROM casillas WHERE posicion = 1), 'San José', 60, 2, 10, 30, 90, 160, 250, 50, 'Lila'),
+((SELECT id FROM casillas WHERE posicion = 3), 'Juan Ramón Jiménez', 60, 4, 20, 60, 180, 320, 450, 50, 'Lila'),
+-- AZUL CLARO
+((SELECT id FROM casillas WHERE posicion = 6), 'Perú', 100, 6, 30, 90, 270, 400, 550, 50, 'Azul Claro'),
+((SELECT id FROM casillas WHERE posicion = 8), 'Nueva', 100, 6, 30, 90, 270, 400, 550, 50, 'Azul Claro'),
+((SELECT id FROM casillas WHERE posicion = 9), 'Pintor Picasso', 120, 8, 40, 100, 300, 450, 600, 50, 'Azul Claro'),
+-- ROSA
+((SELECT id FROM casillas WHERE posicion = 11), 'Calle de la Plata', 140, 10, 50, 150, 450, 625, 750, 100, 'Rosa'),
+((SELECT id FROM casillas WHERE posicion = 13), 'Calle del Bronze', 140, 10, 50, 150, 450, 625, 750, 100, 'Rosa'),
+((SELECT id FROM casillas WHERE posicion = 14), 'Calle de Alicante', 160, 12, 60, 180, 500, 700, 900, 100, 'Rosa'),
+-- BLANCO
+((SELECT id FROM casillas WHERE posicion = 16), 'Calle de Castelar', 180, 14, 70, 200, 550, 750, 950, 100, 'Blanco'),
+((SELECT id FROM casillas WHERE posicion = 18), 'Calle Relleu', 180, 14, 70, 200, 550, 750, 950, 100, 'Blanco'),
+((SELECT id FROM casillas WHERE posicion = 19), 'Calle de los Postigos', 200, 16, 80, 220, 600, 800, 1000, 100, 'Blanco'),
+-- ROJO
+((SELECT id FROM casillas WHERE posicion = 21), 'San Nicolás', 220, 18, 90, 250, 700, 875, 1050, 150, 'Rojo'),
+((SELECT id FROM casillas WHERE posicion = 23), 'Av Juan Bautista La Folra', 220, 18, 90, 250, 700, 875, 1050, 150, 'Rojo'),
+((SELECT id FROM casillas WHERE posicion = 24), 'El Puerto', 240, 20, 100, 300, 750, 925, 1100, 150, 'Rojo'),
+-- AMARILLO
+((SELECT id FROM casillas WHERE posicion = 26), 'Alfonso el Sabio', 260, 22, 110, 330, 800, 975, 1150, 150, 'Amarillo'),
+((SELECT id FROM casillas WHERE posicion = 27), 'Av Federico Soto', 260, 22, 110, 330, 800, 975, 1150, 150, 'Amarillo'),
+((SELECT id FROM casillas WHERE posicion = 29), 'Canalejas', 280, 24, 120, 360, 850, 1025, 1200, 150, 'Amarillo'),
+-- VERDE
+((SELECT id FROM casillas WHERE posicion = 31), 'Costa Blanca', 300, 26, 130, 390, 900, 1100, 1275, 200, 'Verde'),
+((SELECT id FROM casillas WHERE posicion = 32), 'Av Oviedo', 300, 26, 130, 390, 900, 1100, 1275, 200, 'Verde'),
+((SELECT id FROM casillas WHERE posicion = 34), 'Av Mrto José Garberí', 320, 28, 150, 450, 1000, 1200, 1400, 200, 'Verde'),
+-- AZUL OSCURO
+((SELECT id FROM casillas WHERE posicion = 37), 'Camino del Faro', 350, 35, 175, 500, 1100, 1300, 1500, 200, 'Azul Oscuro'),
+((SELECT id FROM casillas WHERE posicion = 39), 'Calle de la Dorada', 400, 50, 200, 600, 1400, 1700, 2000, 200, 'Azul Oscuro'),
+-- ESTACIONES (TRAMS) - El alquiler base es 25, y sube por número de estaciones poseídas
+((SELECT id FROM casillas WHERE posicion = 5), 'Tram Metropolitano 1', 200, 25, 50, 100, 200, NULL, NULL, NULL, 'Estacion'),
+((SELECT id FROM casillas WHERE posicion = 15), 'Tram Metropolitano 2', 200, 25, 50, 100, 200, NULL, NULL, NULL, 'Estacion'),
+((SELECT id FROM casillas WHERE posicion = 25), 'Tram Metropolitano 3', 200, 25, 50, 100, 200, NULL, NULL, NULL, 'Estacion'),
+((SELECT id FROM casillas WHERE posicion = 35), 'Tram Metropolitano 4', 200, 25, 50, 100, 200, NULL, NULL, NULL, 'Estacion'),
+-- SERVICIOS (Multiplicadores)
+((SELECT id FROM casillas WHERE posicion = 12), 'Iberdrola', 150, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'Servicios'),
+((SELECT id FROM casillas WHERE posicion = 28), 'Aquaservice', 150, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'Servicios');
