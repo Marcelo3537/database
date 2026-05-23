@@ -1,4 +1,10 @@
 -- ============================================
+-- FORZAR CODIFICACIÓN UTF8 PARA LA SESIÓN
+-- ============================================
+SET NAMES 'utf8mb4';
+SET CHARACTER SET utf8mb4;
+
+-- ============================================
 -- BASE DE DATOS: MONOPOLY CASINO Y TAPAS
 -- ============================================
 
