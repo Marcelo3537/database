@@ -455,6 +455,13 @@ INSERT INTO recompensas (nombre, descripcion, tipo, moneda_lobby, requisito, dia
 ('Bono de Conexion', 'Recibe puntos por conectarte cada dia', 'diaria', 200, NULL, 1),
 ('Recompensa por Partida', 'Juega una partida para ganar puntos extra', 'partida', 150, 'jugar_partida', 1);
 
+-- ==================================
+-- DATOS INICIALES: USUARIO DE PRUEBA
+-- ==================================
+
+INSERT INTO usuarios (username, email, password_hash)
+VALUES ('begoña', 'begona@example.com', '1234');
+
 -- ============================================
 -- MIGRACION: FOTOS DE PERFIL EN LA TIENDA
 -- ============================================
