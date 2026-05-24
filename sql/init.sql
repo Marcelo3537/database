@@ -454,3 +454,18 @@ INSERT INTO logros (nombre, descripcion, icono, recompensa_pts, condicion, valor
 INSERT INTO recompensas (nombre, descripcion, tipo, moneda_lobby, requisito, dias_intervalo) VALUES
 ('Bono de Conexion', 'Recibe puntos por conectarte cada dia', 'diaria', 200, NULL, 1),
 ('Recompensa por Partida', 'Juega una partida para ganar puntos extra', 'partida', 150, 'jugar_partida', 1);
+
+-- ============================================
+-- MIGRACION: FOTOS DE PERFIL EN LA TIENDA
+-- ============================================
+-- Este script inserta las fotos de perfil de la carpeta fotos-perfil
+-- como productos de tipo 'avatar' en la tienda.
+-- Ejecutar sobre la base de datos monopoly_db existente.
+-- Insertar fotos de perfil como productos (avatar)
+-- El campo 'preview' almacena solo el nombre del archivo.
+-- Anade mas INSERT por cada imagen nueva que agregues a fotos-perfil/
+
+INSERT INTO productos (nombre, descripcion, precio, moneda, categoria, rareza, preview, disponible)
+VALUES
+('PSOE', 'Foto de perfil exclusiva del PSOE', 500, 'moneda_lobby', 'avatar', 'raro', 'psoe.jpg', TRUE)
+ON DUPLICATE KEY UPDATE nombre = VALUES(nombre);
